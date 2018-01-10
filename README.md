@@ -6,5 +6,5 @@
 
 Usage
 ```
-ansible-playbook playbook_osquery.yml
+sudo ansible-playbook playbook_osquery.yml
 ```
