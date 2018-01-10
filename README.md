@@ -1,10 +1,14 @@
 # Ansible Playbook for Installing osquery
 
 - doesn't work on 32 bit machines
-- tested on ubuntu
 - requires sudo access to install package
 
-Usage
+Install osquery on Ubuntu:
 ```
-sudo ansible-playbook playbook_osquery.yml
+sudo ansible-playbook ubuntu.yml
+```
+
+Install osquery on Amazon Linux:
+```
+sudo ansible-playbook ami.yml
 ```
