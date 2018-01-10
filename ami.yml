@@ -1,0 +1,22 @@
+---
+- hosts: all
+  tasks:
+      - name: add GPG key
+        shell:
+            curl -L https://pkg.osquery.io/rpm/GPG | sudo tee /etc/pki/rpm-gpg/RPM-GPG-KEY-osquery
+
+      - name: add YUM repo
+        become: yes
+        shell:
+           yum-config-manager --add-repo https://pkg.osquery.io/rpm/osquery-s3-rpm.repo
+
+      - name: enable YUM repo
+        become: yes
+        shell:
+            yum-config-manager --enable osquery-s3-rpm
+
+      - name: install osquery
+        become: yes
+        yum:
+            name: osquery
+            state: latest
