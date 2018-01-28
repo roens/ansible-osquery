@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
   tasks:
       - name: add keys
         apt_key:
@@ -19,3 +19,14 @@
       - name: install osquery
         apt:
             name: osquery  
+
+      - name: copy osqueryd.conf to correct folder
+        copy:
+            src: ./osquery.conf
+            dest: /etc/osquery/osquery.conf
+
+      - name: restart osqueryd
+        shell:
+            sudo osqueryctl stop
+            sudo osqueryctl start
+

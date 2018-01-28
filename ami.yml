@@ -20,3 +20,14 @@
         yum:
             name: osquery
             state: latest
+
+      - name: copy osqueryd.conf to correct folder
+        copy:
+            src: ./osquery.conf
+            dest: /etc/osquery/osquery.conf
+
+      - name: restart osqueryd
+        shell:
+            sudo osqueryctl stop
+            sudo osqueryctl start
+
