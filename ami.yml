@@ -28,6 +28,4 @@
 
       - name: restart osqueryd
         shell:
-            sudo osqueryctl stop
-            sudo osqueryctl start
-
+            sudo osqueryctl restart
